@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_v1"
+        android:title="Home" />
+
+    <item
         android:id="@+id/settings"
+        android:icon="@drawable/ic_settings_v1"
         android:title="Settings" />
 
     <item
-        android:id="@+id/main"
-        android:title="Main" />
-
-    <item
         android:id="@+id/profile"
+        android:icon="@drawable/ic_profile_general_v1"
         android:title="Profile" />
 </menu>

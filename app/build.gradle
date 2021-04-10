@@ -1,19 +1,30 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
+
+/*
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+*/
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "ru.contesta.pronunciationtrainer"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.varsionCode
+        versionName rootProject.versionName
+
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -22,52 +33,52 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    // kotlinOptions {
-    //     jvmTarget = JavaVersion.VERSION_1_8.toString()
-    // }
 }
 
 dependencies {
+    implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupportVersionV4"
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3LoggingInterceptorVersion"
+
+    implementation "com.google.dagger:dagger:$rootProject.daggerVarsion"
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVarsion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVarsion"
+
+    // Navigation (Java)
+    implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$rootProject.navigationVersion"
+
+    // Navigation (Feature module Support)
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$rootProject.navigationVersion"
+
+    // Navigation (Compose Integration)
+    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+    androidTestImplementation "androidx.navigation:navigation-testing:$rootProject.navigationVersion"
+    testImplementation "io.mockk:mockk:$rootProject.mockkVersion"
 
-    // Material Design Component
-    implementation "com.google.android.material:material:1.4.0-alpha02"
+    // Detecting memory leaks
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
 
-    // Android Jetpak navigation
-    def nav_version = "2.3.5"
-
-    // Java language implementation
-    implementation "androidx.navigation:navigation-fragment:$nav_version"
-    implementation "androidx.navigation:navigation-ui:$nav_version"
-
-    // Kotlin
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-
-    // Feature module Support
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
-
-    // Testing Navigation
-    // androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
-
-    // Jetpack Compose Integration
-    // implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
-
-    def lifecycle_version = "2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-
-    implementation 'com.google.android.gms:play-services-ads:19.6.0'
-
+    // implementation 'com.google.android.gms:play-services-ads:19.6.0'
 }

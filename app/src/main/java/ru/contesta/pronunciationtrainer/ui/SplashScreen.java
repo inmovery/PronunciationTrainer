@@ -1,8 +1,10 @@
-package ru.contesta.pronunciationtrainer;
+package ru.contesta.pronunciationtrainer.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import ru.contesta.pronunciationtrainer.R;
 
 public class SplashScreen extends AppCompatActivity {
 

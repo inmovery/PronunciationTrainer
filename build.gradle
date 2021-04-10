@@ -1,14 +1,58 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+
+    ext {
+        // Application info
+        varsionCode = 1
+        versionName = "1.0"
+
+        // Compilation
+        compileSdkVersion = 29
+        buildToolsVersion = '30.0.2'
+        minSdkVersion = 23
+        targetSdkVersion = 29
+
+        gradleVersion = '4.1.1'
+
+        // Custom dependencies
+        daggerVarsion = '2.34' /* https://github.com/google/dagger/releases */
+        glideVersion = '4.12.0' /* https://github.com/bumptech/glide/releases */
+        gsonVersion = '2.8.6' /* https://github.com/google/gson/releases */
+        retrofitVersion = '2.9.0' /* https://github.com/square/retrofit/releases */
+        okhttp3LoggingInterceptorVersion = '4.9.1' /* https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor */
+        /* https://square.github.io/okhttp/changelog */
+
+        // Testing
+        junitVersion = '5.3.1'
+        espressoVersion = '3.2.0'
+        coreTestingVersion = '2.0.0-alpha1'
+        mockkVersion = '1.9'
+
+        // Kotlin
+        kotlinVersion = '1.4.32' /* https://kotlinlang.org/docs/releases.html */
+        ktlintVersion = '0.41.0' /* https://github.com/pinterest/ktlint/releases */
+        ktxVersion = '1.1.0' /* androidx_version */
+        coroutinesVersion = '1.4.3'
+
+        // UI
+        lifecycleVersion = '2.2.0'
+        materialVersion = '1.4.0-alpha02'
+        navigationVersion = '2.3.5'
+        recyclerViewVersion = '1.2.0'
+
+        // Supporting info
+        supportLibraryVersion = '1.1.0'
+        supportCompatVersion = '1.1.0'
+        constraintLayoutVersion  = '2.0.4'
+        legacySupportVersionV4 = '1.0.0'
+    }
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.1"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
