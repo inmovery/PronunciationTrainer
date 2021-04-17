@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import ru.contesta.pronunciationtrainer.R;
+import ru.contesta.pronunciationtrainer.ui.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

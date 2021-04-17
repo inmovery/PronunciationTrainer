@@ -7,28 +7,42 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!--
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="true" />
+        -->
 
     <application
         android:allowBackup="true"
         android:extractNativeLibs="false"
+        android:hardwareAccelerated="@bool/useHardwareAcceleration"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PronunciationTrainer">
-        <!-- Required to use Google Play Services -->
-        <!--
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version">
-        </meta-data>
-        -->
-        <activity android:name=".ui.SelectLanguage" />
-        <activity android:name=".ui.SplashScreen" />
+        android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.SignUpActivity"></activity>
-
-        <activity android:name=".ui.SignInActivity">
+        <!-- Экран загрузки приложения -->
+        <activity android:name=".ui.introduction.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,24 +50,36 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.MainActivity"></activity>
-        <!--
-        <receiver android:name=".SynchronizeReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
-        -->
+        <!-- Экран гида по приложения -->
+        <activity android:name=".ui.introduction.OnboardingActivity" />
+
+        <!-- Экран выбора родного языка -->
+        <activity android:name=".ui.introduction.SelectNativeLanguageActivity" />
+
+        <!-- Выбор мотивации изучения английского языка -->
+        <activity android:name=".ui.introduction.SelectMotivationActivity" />
+
+        <!-- Тесты с записью аудио -->
+        <activity android:name=".ui.AudioTest" />
+
+        <!-- Авторизация и регистрация -->
+        <activity android:name=".ui.auth.SignUpActivity" />
+        <activity android:name=".ui.auth.SignInActivity" />
+
+        <!-- Главная страница приложения, которая содержит в себе фрагменты (магазин, экран с игрой и профиль) -->
+        <activity android:name=".ui.MainActivity" />
+
+        <!-- Для записи голоса -->
         <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
+            android:name=".AppFileProvider"
+            android:authorities="${applicationId}.app_file_provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-    </application>
 
+        <service android:name=".services.RecordingService" />
+    </application>
 </manifest>

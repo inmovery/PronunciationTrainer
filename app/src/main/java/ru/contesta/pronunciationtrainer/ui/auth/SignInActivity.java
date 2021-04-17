@@ -1,4 +1,4 @@
-package ru.contesta.pronunciationtrainer.ui;
+package ru.contesta.pronunciationtrainer.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,31 +12,26 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import ru.contesta.pronunciationtrainer.R;
 import ru.contesta.pronunciationtrainer.api.models.AuthorizationRequest;
 import ru.contesta.pronunciationtrainer.api.responses.AuthorizationResponse;
-import ru.contesta.pronunciationtrainer.api.service.NetworkRequests;
 import ru.contesta.pronunciationtrainer.api.service.NetworkService;
+import ru.contesta.pronunciationtrainer.ui.AudioTest;
+import ru.contesta.pronunciationtrainer.ui.MainActivity;
 
 public class SignInActivity extends AppCompatActivity {
 
-    Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://inmovery.ru")
-            .addConverterFactory(GsonConverterFactory.create());
-
-    Retrofit retrofit = builder.build();
-
-    NetworkRequests networkRequests = retrofit.create(NetworkRequests.class);
-
     private Button loginCommand;
     private Button registerCommand;
+
+    private Button audioTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        audioTest = findViewById(R.id.audio_test);
 
         loginCommand = findViewById(R.id.sign_in);
         registerCommand = findViewById(R.id.sign_up);
@@ -55,6 +50,12 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        audioTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, AudioTest.class));
+            }
+        });
     }
 
     private static String token;

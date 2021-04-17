@@ -1,4 +1,4 @@
-package ru.contesta.pronunciationtrainer.ui;
+package ru.contesta.pronunciationtrainer.ui.settings;
 
 import android.os.Bundle;
 

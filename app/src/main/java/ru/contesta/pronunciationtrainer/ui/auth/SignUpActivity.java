@@ -1,4 +1,4 @@
-package ru.contesta.pronunciationtrainer.ui;
+package ru.contesta.pronunciationtrainer.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 

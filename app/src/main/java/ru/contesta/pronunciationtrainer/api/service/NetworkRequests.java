@@ -3,6 +3,7 @@ package ru.contesta.pronunciationtrainer.api.service;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -24,9 +25,8 @@ public interface NetworkRequests {
     @Headers("Accept: application/json")
     @POST("audio")
     Call<AudioResponse> handleAudio(
-            @Header("Authorization") String authToken,
             @Body RequestBody requestBody,
-            @Query("word") String word
+            @Field("word") String word
     );
 
     @GET("profiles")
@@ -41,6 +41,7 @@ public interface NetworkRequests {
     *   1. Редактирование профиля
     *   2. Отправка статистики
     *   3. Получение результата отправки аудио файла
+    *   4. Загрузку и генерацию названий изображений на heroku сервер (или на inmovery)
     *
     * */
 

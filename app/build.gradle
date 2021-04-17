@@ -45,19 +45,27 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupportVersionV4"
 
+    // Design
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
+    // Images
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
+    // Retrofit2
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3LoggingInterceptorVersion"
 
+    // Dagger
     implementation "com.google.dagger:dagger:$rootProject.daggerVarsion"
     implementation "com.google.dagger:dagger-android:$rootProject.daggerVarsion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVarsion"
+
+    // Butterknife
+    implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     // Navigation (Java)
     implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"
@@ -79,6 +87,8 @@ dependencies {
     // Detecting memory leaks
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
 
     // implementation 'com.google.android.gms:play-services-ads:19.6.0'
 }

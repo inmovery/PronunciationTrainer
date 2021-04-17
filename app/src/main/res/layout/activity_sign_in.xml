@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ui.SignInActivity"
+    tools:context=".ui.auth.SignInActivity"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="30dp">
@@ -75,4 +75,14 @@
             android:backgroundTint="@color/design_default_color_primary_dark"
             android:text="Sign up" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/audio_test"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Audio test"
+        android:textColor="@color/white"
+        android:background="@color/design_default_color_primary_variant"
+        android:layout_marginTop="50dp" />
+
 </LinearLayout>
