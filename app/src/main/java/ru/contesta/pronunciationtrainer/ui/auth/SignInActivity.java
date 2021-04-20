@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -24,14 +27,17 @@ public class SignInActivity extends AppCompatActivity {
     private Button loginCommand;
     private Button registerCommand;
 
-    private Button audioTest;
+    private TextView restorePassword;
+
+    // private Button audioTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_sign_in);
 
-        audioTest = findViewById(R.id.audio_test);
+        // audioTest = findViewById(R.id.audio_test);
 
         loginCommand = findViewById(R.id.sign_in);
         registerCommand = findViewById(R.id.sign_up);
@@ -39,23 +45,42 @@ public class SignInActivity extends AppCompatActivity {
         loginCommand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                // login();
+                Intent intentToGamePageFragment = new Intent(SignInActivity.this, MainActivity.class);
+                startActivity(intentToGamePageFragment);
             }
         });
 
         registerCommand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // getSecret();
+                Intent intentToSignUpActivity = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(intentToSignUpActivity);
             }
         });
 
+        restorePassword = findViewById(R.id.restore_password);
+
+        // Set underline style
+        SpannableString content = new SpannableString(restorePassword.getText());
+        content.setSpan(new UnderlineSpan(), 0, restorePassword.getText().length(), 0);
+        restorePassword.setText(content);
+
+        restorePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // open restore password window
+            }
+        });
+
+        /*
         audioTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignInActivity.this, AudioTest.class));
             }
         });
+        */
     }
 
     private static String token;
@@ -90,30 +115,4 @@ public class SignInActivity extends AppCompatActivity {
                     }
                 });
     }
-
-    /*
-    private void getSecret(){
-        Call<ResponseBody> call = networkRequests.getSecret(token);
-
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        Toast.makeText(SignInActivity.this, response.body().string(), Toast.LENGTH_SHORT).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(SignInActivity.this, "token is not correct :(", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(SignInActivity.this, "error :(", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    */
 }

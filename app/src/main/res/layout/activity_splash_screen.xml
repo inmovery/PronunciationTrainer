@@ -5,13 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.introduction.SplashScreenActivity"
-    android:gravity="center">
-    <Button
-        android:id="@+id/complete_splash_screen"
+    android:gravity="center"
+    android:background="#90BE6D"
+    android:orientation="vertical">
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:textSize="20dp"
-        android:text="Перейти дальше"
-        android:layout_gravity="center" />
+        android:src="@drawable/froglish"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I`m froglish"
+        android:textColor="@color/white"
+        android:alpha="0.5"
+        android:textSize="75dp" />
 </LinearLayout>

@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="CardSliderViewPager">
+        <attr name="cardSlider_pageMargin" format="dimension" />
+        <attr name="cardSlider_otherPagesWidth" format="dimension" />
 
+        <attr name="cardSlider_smallScaleFactor" format="float" />
+        <attr name="cardSlider_smallAlphaFactor" format="float" />
+
+        <attr name="cardSlider_minShadow" format="dimension" />
+        <attr name="cardSlider_baseShadow" format="dimension" />
+
+        <attr name="cardSlider_indicator" format="reference" />
+
+        <attr name="auto_slide_time" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CardSliderIndicator">
+        <attr name="defaultIndicator" format="reference" />
+        <attr name="selectedIndicator" format="reference" />
+        <attr name="indicatorMargin" format="dimension" />
+        <attr name="indicatorsToShow" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewPager2">
+        <attr name="android:orientation" />
+    </declare-styleable>
+
+    <declare-styleable name="InkPageIndicator">
+        <attr name="ipi_dotDiameter" format="dimension" />
+        <attr name="ipi_dotGap" format="dimension" />
+        <attr name="ipi_animationDuration" format="integer" />
+        <attr name="ipi_pageIndicatorColor" format="color" />
+        <attr name="ipi_currentPageIndicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ScaleViewPager">
+        <attr name="svp_minScale" format="float" />
+        <attr name="svp_maxScale" format="float" />
+        <attr name="svp_coverWidth" format="dimension" />
+    </declare-styleable>
 </resources>

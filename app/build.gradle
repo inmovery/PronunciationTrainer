@@ -1,11 +1,9 @@
 apply plugin: 'com.android.application'
 
-/*
-apply plugin: 'kotlin'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
+// apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-*/
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -25,6 +23,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 
     buildTypes {
@@ -38,15 +37,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
+    implementation "androidx.core:core:$rootProject.coreVersion"
+    implementation "androidx.core:core-ktx:$rootProject.coreVersion"
+
+    implementation "com.android.support:support-v4:$rootProject.supportV4Version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleViewmodelKtxVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlinVersion"
+
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupportVersionV4"
 
     // Design
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    api "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     // Images
@@ -66,6 +81,7 @@ dependencies {
     // Butterknife
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    kapt "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     // Navigation (Java)
     implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"

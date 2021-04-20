@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:paddingTop="20dp"
+    android:background="#90BE6D"
     tools:context=".ui.MainActivity">
+
+    <Switch
+        android:width="40dp"
+        android:height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:thumb="@drawable/sun"
+        android:trackTint="#61000000" />
+
+    <TextView
+        android:id="@+id/score_title"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:text="Score: "
+        android:layout_marginRight="20dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/score_value"
+        android:layout_toEndOf="@+id/score_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:layout_below="@+id/score_value"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/count_of_attempts_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:alpha="0.25"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Attempts:" />
+
+        <TextView
+            android:layout_toEndOf="@+id/count_of_attempts_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.25"
+            android:textSize="25sp"
+            android:text="0" />
+
+    </RelativeLayout>
+
     <FrameLayout
         android:id="@+id/fragment_layout"
         android:layout_width="match_parent"
@@ -15,19 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--
-    <fragment
-        android:id="@+id/fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav" />
-    -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
@@ -40,9 +83,8 @@
         app:itemRippleColor="@color/white"
         app:itemIconTint="@color/tab_item"
         app:itemTextColor="@color/tab_item"
+        android:layout_alignParentBottom="true"
         app:labelVisibilityMode="unlabeled"
         app:itemIconSize="@dimen/design_bottom_navigation_icon_size" />
-    <!--
-    android:background="@drawable/tab_corners_shape"
-    -->
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

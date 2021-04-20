@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".TestInkPageIndicator">
+
+    <ru.contesta.pronunciationtrainer.controls.WrapContentViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <ru.contesta.pronunciationtrainer.InkPageIndicator.InkPageIndicator
+        android:id="@+id/indicator"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ipi_dotDiameter="12dp"
+        app:ipi_dotGap="12dp"
+        app:ipi_animationDuration="320"
+        app:ipi_pageIndicatorColor="@android:color/darker_gray"
+        app:ipi_currentPageIndicatorColor="@android:color/black" />
+</LinearLayout>

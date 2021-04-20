@@ -11,13 +11,15 @@ import ru.contesta.pronunciationtrainer.R;
 
 public class SelectNativeLanguageActivity extends AppCompatActivity {
 
-    Button englishChoice;
+    // Button englishChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_select_native_language);
 
+        /*
         englishChoice = findViewById(R.id.english_choice);
 
         englishChoice.setOnClickListener(new View.OnClickListener() {
@@ -27,5 +29,6 @@ public class SelectNativeLanguageActivity extends AppCompatActivity {
                 startActivity(intentToSelectMotivationActivity);
             }
         });
+        */
     }
 }
