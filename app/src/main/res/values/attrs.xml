@@ -38,5 +38,9 @@
         <attr name="svp_minScale" format="float" />
         <attr name="svp_maxScale" format="float" />
         <attr name="svp_coverWidth" format="dimension" />
+
+        <attr name="smallScaleFactor" format="float" />
+        <attr name="smallAlphaFactor" format="float" />
+
     </declare-styleable>
 </resources>

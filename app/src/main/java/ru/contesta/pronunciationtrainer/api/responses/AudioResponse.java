@@ -3,22 +3,18 @@ package ru.contesta.pronunciationtrainer.api.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+import ru.contesta.pronunciationtrainer.api.models.Symbol;
 import ru.contesta.pronunciationtrainer.models.AudioDetails;
 
 public class AudioResponse {
-    @SerializedName("results")
+
+    @SerializedName("result")
     @Expose()
-    private AudioDetails audioDetails;
+    private List<Symbol> symbols;
 
-    @SerializedName("percentage")
-    @Expose()
-    private double Percentage;
-
-    public AudioDetails getAudioDetails() {
-        return audioDetails;
-    }
-
-    public double getPercentage() {
-        return Percentage;
+    public List<Symbol> getSymbols() {
+        return symbols;
     }
 }
